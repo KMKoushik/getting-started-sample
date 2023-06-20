@@ -21,3 +21,11 @@ jobs:
 
       - name: Install vsce
         run: npm i -g vsce
+
+      - name: Package
+        run: vsce package -o started-dev.vsix
+
+      - name: Upload assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: started-dev.vsix
