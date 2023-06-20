@@ -20,6 +20,7 @@ function activate(context) {
         vscode.commands.executeCommand('setContext', 'gettingStartedContextKey', true);
     }));
     context.subscriptions.push(vscode.commands.registerCommand('getting-started-sample.sayHello', () => {
+        vscode.window.showInformationMessage(JSON.stringify(process.env.ENVIRONMENT));
         if (process.env.ENVIRONMENT === 'development') {
             vscode.window.showInformationMessage('Hello dev');
         }

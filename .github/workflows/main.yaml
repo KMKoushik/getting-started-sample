@@ -26,10 +26,14 @@ jobs:
       - name: Install vsce
         run: npm i -g vsce
 
+      - name: Update env for dev
+        run: echo "New dev content" > file.txt
+
       - name: Package
         run: vsce package -o started-dev.vsix
-        env:
-          ENVIRONMENT: Development
+
+      - name: Update env for dev
+        run: echo "New prod content" > file.txt
 
       - name: Package
         run: vsce package -o started-prod.vsix
