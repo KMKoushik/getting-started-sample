@@ -28,8 +28,15 @@ jobs:
 
       - name: Package
         run: vsce package -o started-dev.vsix
+        env:
+          ENVIRONMENT: Development
+
+      - name: Package
+        run: vsce package -o started-prod.vsix
 
       - name: Upload assets
         uses: softprops/action-gh-release@v1
         with:
-          files: started-dev.vsix
+          files: |
+            started-dev.vsix
+            started-prod.vsix

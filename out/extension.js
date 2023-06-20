@@ -20,7 +20,12 @@ function activate(context) {
         vscode.commands.executeCommand('setContext', 'gettingStartedContextKey', true);
     }));
     context.subscriptions.push(vscode.commands.registerCommand('getting-started-sample.sayHello', () => {
-        vscode.window.showInformationMessage('Hello');
+        if (process.env.ENVIRONMENT === 'development') {
+            vscode.window.showInformationMessage('Hello dev');
+        }
+        else {
+            vscode.window.showInformationMessage('Hello prod');
+        }
     }));
     context.subscriptions.push(vscode.commands.registerCommand('getting-started-sample.viewSources', () => {
         return { openFolder: vscode.Uri.joinPath(context.extensionUri, 'src') };

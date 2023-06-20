@@ -22,7 +22,11 @@ export function activate(context: vscode.ExtensionContext): void {
 	}));
 
 	context.subscriptions.push(vscode.commands.registerCommand('getting-started-sample.sayHello', () => {
-		vscode.window.showInformationMessage('Hello');
+		if (process.env.ENVIRONMENT === 'development') {
+			vscode.window.showInformationMessage('Hello dev');
+		} else {
+			vscode.window.showInformationMessage('Hello prod');
+		}
 	}));
 
 	context.subscriptions.push(vscode.commands.registerCommand('getting-started-sample.viewSources', () => {
