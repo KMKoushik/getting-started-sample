@@ -45,5 +45,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            started-dev.vsix
-            started-prod.vsix
+            ./extension/started-dev.vsix
+            ./extension/started-prod.vsix
